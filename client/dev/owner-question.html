@@ -1,0 +1,177 @@
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&display=swap" rel="stylesheet">
+        <meta charset="utf-8">
+        <style>
+            body {
+                margin: 0;
+                font-family: 'SF Pro', sans-serif;
+                font-weight: 300;
+                background-image: linear-gradient(rgba(255,255,255,0.25), rgba(255,255,255,0.25)), url("assets/background.jpg");
+                background-size: cover;
+            }
+
+            #container {
+                width: 100%;
+                height: 100%;
+
+                backdrop-filter: blur(30px);
+                -webkit-backdrop-filter: blur(15px);
+            }
+
+            #questionContainer {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -40vh);
+
+                /* background-color:white; */
+                padding: 50px 100px;
+                font-size: 40px;
+                font-weight: 300;
+                font-family: 'SF Pro Rounded', sans-serif;
+                width: 90vw;
+                text-align: center;
+
+                animation-name: moveup;
+                animation-duration: 5s;
+                animation-timing-function: ease-in-out;
+
+                border-radius: 10px;
+            }
+
+            @keyframes moveup {
+                0% {
+                    transform: translate(-50%, -50%);
+                }
+                80% {
+                    transform: translate(-50%, -50%);
+                }
+                100% {
+                    transform: translate(-50%, -40vh);
+                }
+            }
+
+            #answersContainer {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -10vh);
+                opacity: 1;
+                animation-name: showanswers;
+                animation-duration: 6s;
+            }
+
+            @keyframes showanswers {
+                0% {
+                    opacity: 0;
+                }
+                80% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            th, td {
+                border-radius: 10px;
+                width: 40vw;
+                height: 10vh;
+                max-height: 200px;
+                font-weight: 300;
+                padding: 50px;
+            }
+
+            table {
+                border-spacing: 15px;
+                width: 80vw;
+            }
+            
+            .answercontainer {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            img {
+                height: 5vh;
+                opacity: 0.5;
+            }
+
+            .diamond {
+                height: 6vh;
+            }
+
+            .answer {
+                margin-right: 25%;
+            }
+
+            #progressbarcontainer {
+                width: 110%;
+                height: 2vh;
+                background-color: rgba(0 122 255);
+                position:absolute;
+                bottom:0;
+                transform: translateX(-10vw);
+                animation-name: progressbar;
+                animation-duration: 25s;
+                border-radius: 50px;
+            }
+
+            @keyframes progressbar {
+                0% {
+                    transform: translateX(-120vw);
+                }
+                15% {
+                    transform: translateX(-120vw);
+                }
+                100% {
+                    transform: translateX(-10vw);
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div id="questionContainer">What is the capital of France?</div>
+            <div id="answersContainer">
+                <table>
+                    <tbody>
+                    <tr>
+                        <th style="background-image: linear-gradient(90deg, white 75%, rgb(255 59 48) 25%);">
+                            <div class="answercontainer">
+                                <div class="answer">Paris</div>
+                            </div>
+                        </th>
+                        <th style="background-image: linear-gradient(90deg, white 75%, rgb(0 122 255) 25%);">
+                            <div class="answercontainer">
+                                <div class="answer">Lyon</div>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td style="background-image: linear-gradient(90deg, white 75%, rgb(255 204 0) 25%);">
+                            <div class="answercontainer">
+                                <div class="answer">Marseille</div>
+                            </div>
+                        </td>
+                        <td style="background-image: linear-gradient(90deg, white 75%, rgb(52 199 89) 25%);">
+                            <div class="answercontainer">
+                                <div class="answer">Toulouse</div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="progressbarcontainer"></div>
+        </div>
+        <script>
+
+        </script>
+    </body>
+</html>

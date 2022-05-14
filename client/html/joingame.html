@@ -1,0 +1,105 @@
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<style>
+    body {
+        margin: 0;
+        font-family: 'SF Pro', sans-serif;
+        font-weight: 300;
+        background-image: linear-gradient(rgba(255,255,255,0.25), rgba(255,255,255,0.25)), url("assets/background.jpg");
+        background-size: cover;
+    }
+
+    #container {
+        width: 100%;
+        height: 100%;
+
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(15px);
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .flexItem {
+        flex-basis: 100%;
+        /* background-color:blue; */
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+    .codeContainer {
+        display: flex;
+        height: 40px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    #joinButton {
+        display:flex;
+        width: 40px;
+        height: 40px;
+        margin: 0;
+        padding: 0;
+        border: none;
+        background-color: white;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .buttonIcon {
+        width: 30px;
+        height: 30px;
+        margin: 10px;
+        background-image: url("icons/arrow.svg");
+        background-repeat: no-repeat;
+    }
+
+    #nameInput {
+        margin: 0;
+        border: none;
+        width: 200px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        
+        font-size: 20px;
+        padding: 5px;
+        text-align: center;
+        font-family: 'SF Pro', sans-serif;
+        font-weight: 200;
+    }
+
+    #nameInput:focus {
+        outline: none;
+    }
+
+</style>
+^
+<div id="container">
+    <div class="flexItem"></div>
+    <div class="flexItem" id="login">
+        <div style="margin-bottom: 10px;">Now enter a username</div>
+        <div class="codeContainer">
+            <input id="nameInput">
+            <button id="joinButton" onclick='joinGameWithName()'>
+                <div class="buttonIcon"></div>
+            </button>
+        </div>
+    </div>
+    <div class="flexItem" id="bottomText">Learn more at quiz.apple.com</div>
+</div>
+^
+function joinGameWithName() {
+    var name = document.getElementById("nameInput").value;
+    var isSafari = false
+    if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+        isSafari = true
+    }
+    ws.send(gamePin + "|createplayer|" + name + "|true|" + isSafari.toString());
+}
